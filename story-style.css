@@ -387,3 +387,140 @@ body {
     padding-right: 0;
   }
 }
+
+/* SEE MORE STORIES */
+
+:root {
+  --text-dark: #333;
+  --text-gold: #dcb57e;
+  --card-width: 350px;
+  --card-height: 500px;
+}
+
+.stories-section {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+  overflow-x: hidden; /* Prevent body horizontal scroll */
+}
+
+.section-header {
+  font-family: "Tektur", sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  margin-bottom: 3rem;
+  text-align: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.section-header span {
+  color: var(--text-gold);
+}
+
+.carousel-container {
+  width: 100%;
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 5vw; /* Adds space at the start and end of the scroll */
+
+  /* Horizontal scrolling setup */
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+
+  /* Snapping properties */
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  /* Hide scrollbars for a clean look */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.story-card {
+  flex: 0 0 var(--card-width);
+  height: var(--card-height);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  scroll-snap-align: center; /* Snaps cards to the center of the viewport */
+
+  /* Smooth scaling for desktop hover */
+  transition:
+    transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  background-color: #000;
+}
+
+.story-card:hover {
+  transform: scale(1.03) translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.story-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.story-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6rem 1.5rem 2rem 1.5rem;
+  background: linear-gradient(
+    to top,
+    rgba(15, 15, 15, 0.95) 0%,
+    rgba(15, 15, 15, 0.7) 40%,
+    transparent 100%
+  );
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.story-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.story-desc {
+  font-size: 0.9rem;
+  color: #d1d1d1;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --card-width: 280px;
+    --card-height: 420px;
+  }
+  .carousel-container {
+    scroll-snap-type: x mandatory;
+    padding: 1rem 1.5rem; /* Tighter padding on mobile */
+  }
+  .story-card {
+    scroll-snap-align: start; /* Snaps to the left edge on mobile */
+  }
+  .story-card:hover {
+    transform: none; /* Disable hover scale on touch devices */
+  }
+}
