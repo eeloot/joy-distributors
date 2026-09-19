@@ -51,7 +51,7 @@ body {
 }
 
 /* NAVBAR */
-.navbar {
+/* .navbar {
   position: sticky;
   top: 0;
   width: 100%;
@@ -66,6 +66,29 @@ body {
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
+  z-index: 1000;
+  font-family: "Play", sans-serif;
+  font-weight: 700;
+  border: 1px solid white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+} */
+
+/* NAVBAR FIX */
+.navbar {
+  position: fixed; /* Changed from sticky */
+  top: 20px; /* Matches the .hero-content padding */
+  width: calc(100% - 40px); /* Subtracts left/right padding */
+  padding: 5px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 1000;
   font-family: "Play", sans-serif;
   font-weight: 700;
@@ -185,7 +208,7 @@ body {
   }
 }
 
-.hero-body {
+/* .hero-body {
   left: 4rem;
   position: absolute;
   color: antiquewhite;
@@ -206,6 +229,34 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-size: 1.2rem;
+} */
+
+.hero-body {
+  position: absolute;
+  bottom: 10%; /* Fluid bottom spacing */
+  left: 5%; /* Fluid left spacing instead of static 4rem */
+  right: 5%; /* Prevents text from hitting the right edge on mobile */
+  color: antiquewhite;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+}
+
+.hero-body h1 {
+  font-family: "Tektur", sans-serif;
+  font-weight: 500;
+  /* Fluid typography: scales dynamically between 1.8rem and 3rem */
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  line-height: 1.2;
+}
+
+.hero-body p {
+  margin: 1rem 0;
+  font-style: italic;
+  /* Replaced strict 40% width with a responsive max-width limit */
+  width: 100%;
+  max-width: 600px;
+  /* Fluid typography for paragraph */
+  font-size: clamp(0.95rem, 2.5vw, 1.2rem);
 }
 
 .cta {
