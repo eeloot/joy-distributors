@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Story</title>
+    <link rel="stylesheet" href="story-style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script defer src="index.js"></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <!-- LEFT LOGO -->
+      <a href="index.html"
+        ><div class="logo">
+          <img src="logo.png" alt="Logo" /></div
+      ></a>
+
+      <!-- CENTER LINKS -->
+      <ul class="nav-links">
+        <li><a href="#">STORIES</a></li>
+        <li><a href="#">CONTACT US</a></li>
+        <li><a href="#">OUR GOAL</a></li>
+      </ul>
+
+      <!-- RIGHT BUTTON -->
+      <a href="#" class="partner-btn">PARTNER WITH US</a>
+
+      <!-- HAMBURGER -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- MOBILE MENU -->
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#">STORIES</a>
+        <a href="#">CONTACT US</a>
+        <a href="#">OUR GOAL</a>
+        <a href="#">PARTNER WITH US</a>
+      </div>
+    </nav>
+
+    <section class="individual-story">
+      <div class="story-container">
+        <!-- Header Section -->
+        <div class="story-header">
+          <div class="title-dark">BEYOND FOOD: MRS. EUNICE</div>
+          <div class="title-gold">TRANSFORMATION</div>
+        </div>
+
+        <!-- Content Section (Grid) -->
+        <div class="story-content">
+          <!-- Left Column -->
+          <div class="story-image-wrapper">
+            <!-- Added fallback image via onerror in case local asset isn't present -->
+            <img
+              src="assets/img/womanImg-2.webp"
+              alt="Mrs. Eunice Transformation"
+              onerror="
+                this.onerror = null;
+                this.src =
+                  'https://images.unsplash.com/photo-1531123897727-8f129e1bf444?q=80&w=600&auto=format&fit=crop';
+              "
+            />
+          </div>
+
+          <!-- Right Column -->
+          <div class="story-text-wrapper">
+            <iconify-icon
+              icon="bxs:quote-alt-left"
+              class="quote-icon"
+            ></iconify-icon>
+
+            <p class="quote-text">
+              Lorem ipsum dolor sit amet consectetur. Id lectus iaculis et
+              vitae. Mauris nibh elementum ac phasellus integer metus lectus
+              nunc ut.
+            </p>
+
+            <p class="quote-author">- MR. EUNICE PEACE (62 YEARS)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
