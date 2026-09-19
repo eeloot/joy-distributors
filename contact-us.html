@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Section</title>
+    <link rel="stylesheet" href="contact-us.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Tektur:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script defer src="contact.js"></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <!-- LEFT LOGO -->
+      <a href="index.html"
+        ><div class="logo">
+          <img src="logo.png" alt="Logo" /></div
+      ></a>
+
+      <!-- CENTER LINKS -->
+      <ul class="nav-links">
+        <li><a href="#">STORIES</a></li>
+        <li><a href="#">CONTACT US</a></li>
+        <li><a href="#">OUR GOAL</a></li>
+      </ul>
+
+      <!-- RIGHT BUTTON -->
+      <a href="#" class="partner-btn">PARTNER WITH US</a>
+
+      <!-- HAMBURGER -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- MOBILE MENU -->
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#">STORIES</a>
+        <a href="#">CONTACT US</a>
+        <a href="#">OUR GOAL</a>
+        <a href="#">PARTNER WITH US</a>
+      </div>
+    </nav>
+    <section class="contact-section">
+      <h2 class="contact-title">CONTACT US</h2>
+
+      <div class="contact-card">
+        <!-- Left Form Area -->
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your Name" />
+            <div class="error-msg" id="nameError">Please enter your name.</div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              rows="7"
+              placeholder="Your Message"
+            ></textarea>
+            <div class="error-msg" id="messageError">
+              Please enter a message.
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group email-group">
+              <input type="email" id="email" placeholder="you@example.com" />
+              <div class="error-msg" id="emailError">
+                Please enter a valid email address.
+              </div>
+            </div>
+            <button type="button" class="submit-btn" id="submitBtn">
+              Submit
+            </button>
+          </div>
+        </form>
+
+        <div class="divider"></div>
+
+        <!-- Right WhatsApp Area -->
+        <div class="whatsapp-container">
+          <div class="wa-icon-wrapper">
+            <!-- Updated WhatsApp icon from Iconify -->
+            <iconify-icon icon="arcticons:whatsapp"></iconify-icon>
+          </div>
+          <button class="wa-btn" id="waBtn">Send Message</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+      <div class="modal-content">
+        <iconify-icon
+          icon="mdi:check-circle-outline"
+          class="modal-icon"
+        ></iconify-icon>
+        <h3>SENT</h3>
+        <button class="modal-btn" id="modalOkayBtn">Okay</button>
+      </div>
+    </div>
+  </body>
+</html>

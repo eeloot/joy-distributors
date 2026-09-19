@@ -1,0 +1,436 @@
+/* CSS Reset & Basic Setup */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: #d19f4a; /* Golden/brown matching the design */
+  --text-dark: #333333;
+  --text-light: #777777;
+  --error-color: #e74c3c;
+  --bg-white: #ffffff;
+  --font-heading: "Tektur", sans-serif;
+  --font-body: "Nunito", sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: antiquewhite;
+}
+
+/* NAVBAR */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 5px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(20, 20, 20, 0.225);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  z-index: 1000;
+  font-family: "Play", sans-serif;
+  font-weight: 700;
+  border: 1px solid white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  border-right: 1px solid white;
+}
+
+.logo img {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* CENTER NAV */
+.nav-links {
+  display: flex;
+  gap: 45px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  opacity: 0.7;
+}
+
+/* RIGHT BUTTON */
+.partner-btn,
+.cta {
+  text-decoration: none;
+  color: black;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 12px 22px;
+  border-radius: 5px;
+  transition: 0.3s;
+  font-size: 0.6rem;
+  background-color: white;
+}
+
+.partner-btn:hover,
+.cta:hover {
+  background: transparent;
+  color: white;
+  backdrop-filter: blur(8px);
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 26px;
+  height: 3px;
+  background: white;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(14px);
+
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 0;
+  gap: 25px;
+}
+
+.mobile-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.mobile-menu.active {
+  display: flex;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .nav-links,
+  .partner-btn {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar {
+    padding: 18px 25px;
+  }
+}
+
+/* Section Layout */
+.contact-section {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  /* Background color intentionally left undefined to inherit */
+}
+
+.contact-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: var(--text-dark);
+  margin-bottom: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.contact-card {
+  background-color: var(--bg-white);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  padding: 3rem;
+  gap: 3rem;
+}
+
+/* Form Area */
+.contact-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.form-group label {
+  font-weight: 700;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+  font-family: var(--font-body);
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  outline: none;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  transition: box-shadow 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #b0b0b0;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  box-shadow: 0 0 0 2px rgba(209, 159, 74, 0.2);
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.form-row .email-group {
+  flex: 1;
+}
+
+.submit-btn {
+  background-color: var(--primary-color);
+  color: var(--bg-white);
+  border: none;
+  border-radius: 4px;
+  padding: 0.85rem 2rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.1s ease;
+  height: 46px; /* Matches input height */
+}
+
+.submit-btn:hover {
+  background-color: #b88a3e;
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+}
+
+/* Error Messages */
+.error-msg {
+  color: var(--error-color);
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: none;
+  margin-top: 0.25rem;
+}
+
+.error-msg.show {
+  display: block;
+  animation: slideDown 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Divider */
+.divider {
+  width: 1px;
+  background-color: var(--primary-color);
+  opacity: 0.4;
+}
+
+/* WhatsApp Area */
+.whatsapp-container {
+  flex: 0.8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.wa-icon-wrapper {
+  color: var(--primary-color);
+  font-size: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wa-btn {
+  background-color: var(--primary-color);
+  color: var(--bg-white);
+  border: none;
+  border-radius: 4px;
+  padding: 0.85rem 2.5rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.1s ease;
+}
+
+.wa-btn:hover {
+  background-color: #b88a3e;
+}
+
+.wa-btn:active {
+  transform: scale(0.98);
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+  z-index: 1000;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: var(--bg-white);
+  padding: 3rem;
+  border-radius: 12px;
+  text-align: center;
+  transform: scale(0.8);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.modal-overlay.active .modal-content {
+  transform: scale(1);
+}
+
+.modal-icon {
+  font-size: 5rem;
+  color: #2ecc71;
+}
+
+.modal-content h3 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.modal-btn {
+  background-color: var(--text-dark);
+  color: var(--bg-white);
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 2.5rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-btn:hover {
+  background-color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-card {
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .submit-btn {
+    width: 100%;
+  }
+
+  .wa-icon-wrapper {
+    font-size: 120px;
+  }
+}
