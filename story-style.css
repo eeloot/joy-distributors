@@ -289,3 +289,101 @@ body {
     max-width: 100%;
   }
 }
+
+/* FAQ SECTION */
+:root {
+  --text-dark: #222222;
+  --text-muted: #555555;
+  --border-color: #dcdcdc; /* Subtle gray line */
+  --transition-speed: 0.4s;
+}
+
+.faq-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  width: 100%;
+}
+
+.faq-container {
+  width: 100%;
+  max-width: 1200px;
+  /* Top border to enclose the list nicely */
+  border-top: 1px solid var(--border-color);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border-color);
+  /* Creating an invisible buffer to make hovering easier without dropping state */
+  padding: 0;
+}
+
+.faq-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  cursor: pointer;
+  /* Keep header background transparent so it inherits */
+  background-color: transparent;
+}
+
+.faq-title {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-dark);
+}
+
+.faq-icon {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  transition: transform var(--transition-speed) ease;
+}
+
+.faq-content-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--transition-speed) ease-in-out;
+}
+
+.faq-content-inner {
+  overflow: hidden;
+}
+
+/* Padding is applied inside the inner content so it doesn't break the 0fr height calculation */
+.faq-text {
+  padding-bottom: 2rem;
+  padding-right: 2rem; /* Give breathing room before the icon space */
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  line-height: 1.6;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.faq-item:hover .faq-content-wrapper {
+  grid-template-rows: 1fr;
+}
+
+.faq-item:hover .faq-icon {
+  transform: rotate(180deg);
+  color: var(--text-dark);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 3rem 1.5rem;
+  }
+  .faq-header {
+    padding: 1.5rem 0;
+  }
+  .faq-text {
+    padding-bottom: 1.5rem;
+    padding-right: 0;
+  }
+}
